@@ -11,7 +11,7 @@ class PostsNew extends Component {
 					type="text" 
 					{...field.input} 
 				/>
-				{field.meta.error}
+				{field.meta.touched ? field.meta.error : ''}
 			</div>
 		);
 	}
@@ -46,7 +46,6 @@ class PostsNew extends Component {
 
 function validate(values){
 	const errors = {};
-
 	// if (!values.title || values.title.length < 3) {
 	// 	errors.title = "Enter a title!";
 	// }
@@ -59,7 +58,6 @@ function validate(values){
 	if (!values.content) {
 		errors.content = "Enter a content!";
 	}
-
 	return errors;
 }
 
